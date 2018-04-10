@@ -1,0 +1,40 @@
+@layout('layout.default')
+
+@section('listadoEmpleados')
+
+
+<div class="card">
+  <div class="card-header">
+    <h4>Listado empleados</h4>
+  </div>
+  <div class="card-body">
+    <table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Colonia</th>
+      <th scope="col">Ubicación</th>
+      <th scope="col">Detalles</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+  @each(empleado in lista)
+  <tr>
+      <td>{{empleado.nombre}} {{empleado.apellido_p}} {{empleado.apellido_m}}</td>
+      <td>{{empleado.email}}</td>
+      <td>{{empleado.colonia}}</td>
+      <td><a href="/maps/{{empleado.id}}"><i class="fa fa-map-marker"> </i></a></td>
+         <td>   <a href="/detalles/{{empleado.id}}"><i class="fa fa-file-text-o"> </i></a></td>
+          <td> <a href="/editar/{{empleado.id}}"><i class="fa fa-pencil-square-o"> </i> </a></td>
+         <td>   </i> <a href="/eliminar/{{empleado.id}}"><i class="fa fa-trash-o"></a></td>
+
+ </tr>
+  @endeach
+  </tbody>
+</table>
+  </div>
+</div>
+@endsection

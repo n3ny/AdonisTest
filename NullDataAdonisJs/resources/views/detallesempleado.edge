@@ -1,0 +1,18 @@
+@layout('layout.default')
+@section('detalles')
+<div class="card">
+  <div class="card-header">
+<h4>Datos del empleado</h4>
+  </div>
+  <div class="card-body">
+  <div class="card-body">
+    <h5 class="card-title">{{empleado.nombre}} {{empleado.apellido_p}} {{empleado.apellido_m}}</h5>
+ <p class="card-text">{{empleado.fecha_nac}}</p>    
+    <p class="card-text">{{empleado.calle}} {{empleado.numero}} {{empleado.colonia}} {{empleado.estado}} {{empleado.pais}}</p>    
+    <a href="/editar/{{empleado.id}}" class="btn btn-dark">Editar</a>
+  </div>
+  <div class="card-footer text-muted">
+    {{empleado.email}}
+  </div>
+</div>
+@endsection

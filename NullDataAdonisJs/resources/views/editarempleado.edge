@@ -1,0 +1,92 @@
+@layout('layout.default')
+@section('nuevoEmpleado')
+@if(old('notification'))
+<div class="alert alert-success">
+{{old('notification')}}
+</div>
+@endif
+
+
+<div class="card">
+  <div class="card-header">
+        <h5 class="card-title">Editar Empleado</h5>
+
+  </div>
+  <div class="card-body">
+    <form action="/guardarCambios/{{empleado.id}}" method="POST">
+{{csrfField()}}
+
+<div class="form-row">
+
+<div class="col-md-12 mb-3">
+</div>
+<div class="col-md-4 mb-3">
+<label>Nombres</label>
+<input type="text" name="nombre" placeholder="Nombre" class="form-control" value="{{empleado.nombre}}"/>
+{{elIf('<span class="text-danger">$self</span>',getErrorFor('nombre'),hasErrorFor('nombre'))}}
+</div>
+
+<div class="col-md-4 mb-3" >
+<label>Apellido Paterno</label>
+<input type="text" name="apellido_p" placeholder="Apellido paterno" class="form-control"value="{{empleado.apellido_m}}"/>
+{{elIf('<span class="text-danger">$self</span>',getErrorFor('apellido_p'),hasErrorFor('apellido_p'))}}
+</div>
+
+<div class="col-md-4 mb-3" >
+<label>Apellido Materno</label>
+<input type="text" name="apellido_m" placeholder="Apellido materno" class="form-control" value="{{empleado.apellido_m}}"/>
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Fecha de Nacimiento</label>
+<input type="date" name="fecha_nac" class="form-control" step="1" value="{{empleado.fecha_nac}}" />
+{{elIf('<span class="text-danger">$self</span>',getErrorFor('fecha_nac'),hasErrorFor('fecha_nac'))}}
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Correo</label>
+<input type="text" name="email" placeholder="username@gmail.com" class="form-control" value="{{empleado.email}}" />
+{{elIf('<span class="text-danger">$self</span>',getErrorFor('email'),hasErrorFor('email'))}}
+</div>
+
+
+<div class="col-md-2 mb-3">
+<label>Calle</label>
+<input type="text" name="calle" placeholder="Calle" class="form-control" value="{{empleado.calle}}" />
+{{elIf('<span class="text-danger">$self</span>',getErrorFor('calle'),hasErrorFor('calle'))}}
+</div>
+
+<div class="col-md-2 mb-3">
+<label>Número</label>
+<input type="text" name="numero" placeholder="456" class="form-control" value="{{empleado.numero}}" />
+{{elIf('<span class="text-danger">$self</span>',getErrorFor('numero'),hasErrorFor('numero'))}}
+</div>
+
+<div class="col-md-4 mb-3">
+<label>Colonia</label>
+<input type="text" name="colonia" placeholder="Colonia" class="form-control" value="{{empleado.colonia}}"/>
+{{elIf('<span class="text-danger">$self</span>',getErrorFor('colonia'),hasErrorFor('clonia'))}}
+</div>
+
+<div class="col-md-2 mb-3">
+<label>Estado</label>
+<input type="text" name="estado" placeholder="Estado" class="form-control" value="{{empleado.estado}}" />
+{{elIf('<span class="text-danger">$self</span>',getErrorFor('estado'),hasErrorFor('estado'))}}
+</div>
+
+<div class="col-md-2 mb-3">
+<label>Pais</label>
+<input type="text" name="pais" placeholder="País" class="form-control" value="{{empleado.pais}}" />
+{{elIf('<span class="text-danger">$self</span>',getErrorFor('pais'),hasErrorFor('pais'))}}
+</div>
+
+
+<div class="col-md-2 mb-3">
+  <button type="submit" class=" btn btn-dark">Guardar</button>
+  </div>
+
+</form>
+  </div>
+</div>
+
+@endsection

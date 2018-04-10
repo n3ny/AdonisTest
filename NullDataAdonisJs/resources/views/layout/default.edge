@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NullData Test</title>
+  {{ css('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css') }}
+  {{ css('https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css') }}
+  <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+
+</head>
+<body>
+{{script('https://code.jquery.com/jquery-3.2.1.slim.min.js')}}
+{{script('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')}}
+{{script('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')}}
+
+@include('layout/navbarTemplate')
+  @!section('nuevoEmpleado')
+    @!section('listadoEmpleados')
+    @!section('map')
+     @!section('detalles')
+</body>
+</html>
